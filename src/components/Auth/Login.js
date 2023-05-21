@@ -17,13 +17,12 @@ const Login = () => {
                 "Content-Type": "application/json",
             }
         }).then((res) => {
-            localStorage.setItem('token', res.data.token)
+            localStorage.setItem('token', res.data.accesstoken)
             navigate(0)
         }).catch((err) => {
             setShowError(true)
         })
     }
-    console.log(`${process.env.REACT_APP_BASEURL}`);
     return (
         <>
             <div className="page-wrapper" id="main-wrapper">
