@@ -1,83 +1,59 @@
 import './App.css';
-import { useState } from 'react';
-import LoginForm from './components/Auth/LoginForm';
 import Sidebar from './components/Sidebar';
 import { Routes, Route } from 'react-router-dom';
-import AdminDetails from './components/Admin/AdminDetails';
-import Users from './components/Users/Users';
-import SuccessStories from './components/Succsess/SuccessStories';
-import PlanDetails from './components/Plans/PlanDetails';
-import RechargeUser from './components/Users/RechargeUser';
-import AddProfile from './components/Users/AddProfile';
-import SendEmail from './components/Sendmails/SendEmail';
-import CustomerQueries from './components/Queries/CustomerQueries';
-import Createadmin from './components/Admin/Createadmin';
-import Updateuser from './components/Users/Updateuser';
-import Successcreate from './components/Succsess/Successcreate';
-import Successupdate from './components/Succsess/Successupdate';
-import Createplan from './components/Plans/Createplan';
-import Updateplan from './components/Plans/Updateplan';
-import Unpaiduser from './components/Unpaiduser';
-import Dashboard from './components/Dashboard'
-import Logout from './components/Auth/Logout';
-import RechargeHistory from './components/Plans/RechargeHistory';
+import Home from './components/Home'
+import Activities from './components/Activities';
+import Gallery from './components/Gallery';
+import Queries from './components/Queries';
+import Blogs from './components/Blogs'
+import Testimonials from './components/Testimonials'
+import Dashboard from './components/Dashboard';
+import TActivity from './components/TActivity';
+import TBlog from './components/TBlog';
+import TGallery from './components/TGallery'
+import THome from './components/THome'
+import TTestimonials from './components/TTestimonials';
+import EBlog from './components/EBlog';
+import Login from './components/Auth/Login'
 
 function App() {
-    // const [loggedin, setLoggedin] = useState(false);
 
     return (
-        <div className="App">
-            <div>
-                {
-
-                    <div className='container-fluid'>
+        <>
+            <div className="container-fluid">
+                {localStorage.getItem('token') ? (
+                    <>
                         <div className="row">
-                            <Routes>
+                            <div className="col-lg-3">
+                                <Sidebar />
+                            </div>
+                            <div className="routing_div col-lg-9">
+                                <Routes>
+                                    <Route path='/' index element={<Dashboard />} />
+                                    <Route path="/home" element={<Home />} />
+                                    <Route path="/activity" element={<Activities />} />
+                                    <Route path="/gallery" element={<Gallery />} />
+                                    <Route path="/query" element={<Queries />} />
+                                    <Route path="/blogs" element={<Blogs />} />
+                                    <Route path="/testimonials" element={<Testimonials />} />
 
-                                <Route path="/" index element={<Dashboard />} />
-
-                                {/*Routes for admin section */}
-                                < Route path="/admin" element={<AdminDetails />} />
-                                <Route path='/createadmin' element={<Createadmin />} />
-
-                                {/* Routes for users */}
-                                <Route path="/users" element={<Users />} />
-                                <Route path="/addprofile" element={<AddProfile />} />
-                                <Route path="/rechargeuser" element={<RechargeUser />} />
-                                <Route path="/updateuser" element={<Updateuser />} />
-
-                                {/* Routes for Success */}
-                                <Route path="/successstories" element={<SuccessStories />} />
-                                <Route path="/successcreate" element={<Successcreate />} />
-                                <Route path="/successupdate" element={<Successupdate />} />
-
-                                {/* Routes for Plans */}
-                                <Route path="/plandetails" element={<PlanDetails />} />
-                                <Route path="/createplan" element={<Createplan />} />
-                                <Route path="/updateplan" element={<Updateplan />} />
-                                <Route path="/rechargedone" element={<RechargeHistory />} />
-
-
-                                {/* Routes for sendmails */}
-                                <Route path="/sendemails" element={<SendEmail />} />
-
-                                {/*Routes for Queries  */}
-                                <Route path="/customerqueries" element={<CustomerQueries />} />
-
-                                {/* Routes for Auth */}
-                                <Route path='/login' element={<LoginForm />} />
-                                <Route path='/logout' element={<Logout />} />
-
-                                <Route path="/unpaiduser" element={<Unpaiduser />} />
-                            </Routes>
-
+                                    <Route path="/activityTable" element={<TActivity />} />
+                                    <Route path="/blogsTable" element={< TBlog />} />
+                                    <Route path="/galleryTable" element={< TGallery />} />
+                                    <Route path="/homeTable" element={< THome />} />
+                                    <Route path="/testimonialsTable" element={< TTestimonials />} />
+                                    <Route path="/blogsEdit" element={< EBlog />} />
+                                </Routes>
+                            </div>
                         </div>
-                    </div>
-                }
+                    </>
+                ) : (<Login />)}
+
 
             </div>
 
-        </div>
+        </>
+
     );
 }
 
