@@ -7,11 +7,12 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Link, useNavigate } from 'react-router-dom'
 
 const EBlog = () => {
+    const navigate = useNavigate();
     const notify = (p, msg) => p ? toast.success(msg) : toast.error(msg);
     const [prevImg, setPrevImg] = useState('')
     const [prev, setPrev] = useState([])
     const location = useLocation();
-    console.log(location.state.id)
+    
     const imageFormator = (file) => {
         return new Promise((resolve, reject) => {
             const reader = new FileReader()
