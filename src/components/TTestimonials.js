@@ -72,7 +72,7 @@ const TTestimonials = () => {
                                         <tr>
                                             <th scope="row">{idx + 1}</th>
                                             <td>{val.author}</td>
-                                            <td>{val.dscription}</td>
+                                            <td>{val.description}</td>
                                             <td>{val.city}</td>
                                             <td>
                                                 <button className='btn border-none' onClick={() => deleteUser(val._id)}>
