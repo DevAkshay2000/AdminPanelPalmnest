@@ -69,14 +69,7 @@ const Sidebar = () => {
                                         <span className="hide-menu">Gallery Page</span>
                                     </Link>
                                 </li>
-//                                 <li className="sidebar-item">
-//                                     <Link className="sidebar-link" to="/blogsTable" aria-expanded="false">
-//                                         <span>
-//                                             <i className="fa-brands fa-blogger"></i>
-//                                         </span>
-//                                         <span className="hide-menu">Blogs Page</span>
-//                                     </Link>
-//                                 </li>
+
                                 <li className="sidebar-item">
                                     <Link className="sidebar-link" to="/testimonialsTable" aria-expanded="false">
                                         <span>
